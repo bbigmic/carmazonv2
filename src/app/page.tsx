@@ -139,6 +139,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="flex justify-center mt-12">
+            <button className="bg-red-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl border border-red-500">
+              Pokaż wszystkie samochody
+            </button>
+          </div>
         </div>
       </section>
 
