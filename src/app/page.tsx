@@ -5,7 +5,7 @@ import AppointmentForm from '@/components/AppointmentForm';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       <Navbar />
       
       {/* Hero Section */}
@@ -28,6 +28,42 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="relative bg-black -mt-8 -mb-8 z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-zinc-900 rounded-xl p-6 border border-red-600 shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Marka</label>
+              <select className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500">
+                <option>Wszystkie marki</option>
+                <option>Audi</option>
+                <option>BMW</option>
+                <option>Mercedes</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Model</label>
+              <select className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500">
+                <option>Wszystkie modele</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">Cena do</label>
+              <select className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500">
+                <option>Dowolna</option>
+                <option>50 000 zł</option>
+                <option>100 000 zł</option>
+                <option>150 000 zł</option>
+                <option>200 000 zł</option>
+              </select>
+            </div>
+            <div className="flex items-end">
+              <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium">
+                Szukaj
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Sprzedaż Section */}
       <section 
@@ -185,18 +221,18 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   Pielęgnacja szyb
-          </li>
+                </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   Pielęgnacja wnętrza
-          </li>
+                </li>
               </ul>
             </div>
             <div className="bg-black/50 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-zinc-800 hover:border-red-500 transition-all duration-300">
               <div className="h-48 mb-6 rounded-xl overflow-hidden relative">
-            <Image
+                <Image
                   src="/images/detaling/renowacja.jpg"
                   alt="Renowacja samochodu"
                   fill
@@ -232,7 +268,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Mechanika Section */}
       <section id="mechanika" className="py-20 bg-black scroll-mt-20">
@@ -379,7 +414,7 @@ export default function Home() {
               <ul className="space-y-2 text-zinc-400">
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0121 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                   </svg>
                   Pon-Pt: 8:00 - 18:00
                 </li>
