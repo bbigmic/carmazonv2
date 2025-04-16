@@ -4,13 +4,15 @@ import prisma from '@/lib/prisma';
 // DELETE /api/services/[id]
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
+  const id = context.params.id;
+
   try {
     await prisma.service.delete({
       where: {
-        id: params.id
-      }
+        id: id,
+      },
     });
     return NextResponse.json({ message: 'Usługa została usunięta' });
   } catch (error) {
@@ -20,4 +22,4 @@ export async function DELETE(
       { status: 500 }
     );
   }
-} 
+}
