@@ -11,9 +11,14 @@
   "dependencies": {
     "@headlessui/react": "^2.2.1",
     "@heroicons/react": "^2.2.0",
+    "@prisma/client": "^6.6.0",
+    "framer-motion": "^12.7.3",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.2",
     "next": "15.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -26,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "postcss": "^7.0.39",
+    "prisma": "^6.6.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5"
   }

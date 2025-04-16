@@ -27,14 +27,14 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <Image
                 src="/logo.svg"
-                alt="Carmazon Logo"
+                alt="Grupa Auto Spectrum Logo"
                 width={40}
                 height={40}
                 className="h-10 w-auto"
               />
               <span className={`ml-2 text-xl font-bold ${
                 isScrolled ? 'text-black' : 'text-white'
-              }`}>Carmazon</span>
+              }`}>Grupa Auto Spectrum</span>
             </Link>
           </div>
           <div className="hidden md:block">
@@ -48,12 +48,12 @@ export default function Navbar() {
                 Sprzedaż
               </Link>
               <Link 
-                href="#detaling" 
+                href="#detailing" 
                 className={`text-sm font-medium transition-colors ${
                   isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
                 }`}
               >
-                Detaling
+                Detailing
               </Link>
               <Link 
                 href="#mechanika" 
@@ -72,12 +72,22 @@ export default function Navbar() {
                 Laweta
               </Link>
               <Link 
-                href="#kontakt" 
+                href="#footer" 
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105 shadow-md ${
                   isScrolled
                     ? 'bg-red-500 text-white hover:bg-red-600'
                     : 'bg-white/90 backdrop-blur-sm text-red-500 hover:bg-white'
                 }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const footer = document.getElementById('footer');
+                  const phoneNumber = document.getElementById('phone-number');
+                  footer?.scrollIntoView({ behavior: 'smooth' });
+                  phoneNumber?.classList.add('animate-pulse', 'text-red-500');
+                  setTimeout(() => {
+                    phoneNumber?.classList.remove('animate-pulse', 'text-red-500');
+                  }, 3000);
+                }}
               >
                 Kontakt
               </Link>
@@ -119,12 +129,12 @@ export default function Navbar() {
             Mechanika
           </Link>
           <Link 
-            href="#detaling" 
+            href="#detailing" 
             className={`block px-3 py-2 rounded-md text-base font-medium ${
               isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
             }`}
           >
-            Detaling
+            detailing
           </Link>
           <Link 
             href="#sprzedaz" 
@@ -143,10 +153,20 @@ export default function Navbar() {
             Laweta
           </Link>
           <Link 
-            href="#kontakt" 
+            href="#footer" 
             className={`block px-3 py-2 rounded-md text-base font-medium ${
               isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
             }`}
+            onClick={(e) => {
+              e.preventDefault();
+              const footer = document.getElementById('footer');
+              const phoneNumber = document.getElementById('phone-number');
+              footer?.scrollIntoView({ behavior: 'smooth' });
+              phoneNumber?.classList.add('animate-pulse', 'text-red-500');
+              setTimeout(() => {
+                phoneNumber?.classList.remove('animate-pulse', 'text-red-500');
+              }, 3000);
+            }}
           >
             Kontakt
           </Link>

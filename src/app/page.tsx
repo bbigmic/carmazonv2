@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
 import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
+import ContactButton from '@/components/ContactButton';
 
 export default function Home() {
   return (
@@ -17,140 +18,121 @@ export default function Home() {
           backgroundPosition: 'center'
         }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-white animate-slide-up drop-shadow-lg [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 text-center py-20">
+          <h1 className="text-5xl md:text-7xl font-bold mt-16 mb-8 text-white animate-slide-up drop-shadow-lg [text-shadow:_2px_2px_10px_rgb(0_0_0_/_90%)]">
             Kompleksowe Usługi<br />Motoryzacyjne
           </h1>
-          <p className="text-xl md:text-3xl mb-12 text-white animate-slide-up-delay max-w-3xl mx-auto drop-shadow-lg [text-shadow:_1px_1px_5px_rgb(0_0_0_/_90%)]">
-            Mechanika, Detaling, Sprzedaż Samochodów i Wynajem Lawet
+          <p className="text-xl md:text-3xl mb-4 text-white animate-slide-up-delay max-w-3xl mx-auto drop-shadow-lg [text-shadow:_1px_1px_5px_rgb(0_0_0_/_90%)]">
+            Mechanika, Detailing, Sprzedaż Samochodów i Wynajem Lawet
           </p>
-          <AppointmentForm />
+          {/* <AppointmentForm /> */}
         </div>
       </section>
 
-      <div className="relative bg-black -mt-8 -mb-8 z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-zinc-900 rounded-xl p-6 border border-red-600 shadow-xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-white mb-1">Marka</label>
-              <select className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500">
-                <option>Wszystkie marki</option>
-                <option>Audi</option>
-                <option>BMW</option>
-                <option>Mercedes</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-white mb-1">Model</label>
-              <select className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500">
-                <option>Wszystkie modele</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-white mb-1">Cena do</label>
-              <select className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500">
-                <option>Dowolna</option>
-                <option>50 000 zł</option>
-                <option>100 000 zł</option>
-                <option>150 000 zł</option>
-                <option>200 000 zł</option>
-              </select>
-            </div>
-            <div className="flex items-end">
-              <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium">
-                Szukaj
-              </button>
-            </div>
+      {/* Sekcja Sprzedaż Samochodów */}
+      <section className="py-20 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/sprzedaz/background.jpg')] bg-cover bg-center opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Sprzedaż Samochodów
+            </h2>
+            <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
+              Profesjonalna obsługa w zakresie kupna i sprzedaży samochodów
+            </p>
           </div>
-        </div>
-      </div>
 
-      {/* Sprzedaż Section */}
-      <section 
-        id="sprzedaz" 
-        className="py-20 bg-black scroll-mt-20"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
-            Sprzedaż Samochodów
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800">
-              <div className="absolute inset-0 bg-black/80 z-10" />
-              <img 
-                src="/images/sprzedaz/audi-a4.jpg" 
-                alt="Audi A4" 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
-              <div className="relative z-20 bg-transparent p-8">
-                <div className="mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                  </svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Lewa strona - Informacje o kupnie/sprzedaży */}
+            <div className="bg-zinc-900/80 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800">
+              <h3 className="text-2xl font-bold text-white mb-6">Kupno i Sprzedaż</h3>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">Profesjonalna Wycena</h4>
+                    <p className="text-zinc-400 text-white">Dokładna wycena Twojego samochodu przez naszych ekspertów</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Audi A4</h3>
-                <p className="text-white mb-4">2.0 TDI, 2019, 150 KM</p>
-                <p className="text-red-500 font-bold text-xl">89 900 zł</p>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">Kompleksowa Obsługa</h4>
+                    <p className="text-zinc-400 text-white">Pomoc w formalnościach i dokumentacji</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">Gwarancja Jakości</h4>
+                    <p className="text-zinc-400 text-white">Wszystkie oferowane samochody przechodzą szczegółową kontrolę techniczną</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800">
-              <div className="absolute inset-0 bg-black/80 z-10" />
-              <img 
-                src="/images/sprzedaz/bmw-3.jpg" 
-                alt="BMW Seria 3" 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
-              <div className="relative z-20 bg-transparent p-8">
-                <div className="mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                  </svg>
+
+            {/* Prawa strona - Zakomentowany kod */}
+            <div className="bg-zinc-900/80 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800">
+              <h3 className="text-2xl font-bold text-white mb-6">Nasza Oferta</h3>
+              <div className="space-y-6">
+                {/* Zakomentowany kod */}
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {cars.map((car) => (
+                    <div key={car.id} className="bg-zinc-800 rounded-xl overflow-hidden group hover:transform hover:scale-105 transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden">
+        <Image
+                          src={car.image}
+                          alt={car.name}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-white mb-2">{car.name}</h3>
+                        <p className="text-zinc-400 mb-4">{car.description}</p>
+                        <div className="flex justify-between items-center">
+                          <span className="text-2xl font-bold text-red-600">{car.price} zł</span>
+                          <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                            Szczegóły
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div> */}
+                
+                <div className="text-center">
+                  <p className="text-zinc-400 mb-6 text-white">
+                    Aktualnie pracujemy nad rozszerzeniem naszej oferty samochodów. 
+                    Wkrótce pojawią się tutaj dostępne pojazdy.
+                  </p>
+                  <ContactButton />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">BMW Seria 3</h3>
-                <p className="text-white mb-4">2.0, 2020, 184 KM</p>
-                <p className="text-red-500 font-bold text-xl">129 900 zł</p>
               </div>
             </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800">
-              <div className="absolute inset-0 bg-black/80 z-10" />
-              <img 
-                src="/images/sprzedaz/mercedes-c.jpg" 
-                alt="Mercedes C-Klasa" 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
-              <div className="relative z-20 bg-transparent p-8">
-                <div className="mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Mercedes C-Klasa</h3>
-                <p className="text-white mb-4">2.0, 2021, 194 KM</p>
-                <p className="text-red-500 font-bold text-xl">149 900 zł</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center mt-12">
-            <button className="bg-red-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl border border-red-500">
-              Pokaż wszystkie samochody
-            </button>
           </div>
         </div>
       </section>
 
-      {/* Detaling Section */}
-      <section id="detaling" className="py-20 relative overflow-hidden scroll-mt-20">
+      {/* detailing Section */}
+      <section id="detailing" className="py-20 relative overflow-hidden scroll-mt-20">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/detaling/background.jpg)'
           }}
@@ -158,7 +140,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Detaling
+              Detailing
             </h2>
             <p className="text-xl text-white max-w-3xl mx-auto">
               Profesjonalna pielęgnacja i renowacja pojazdów
@@ -182,7 +164,7 @@ export default function Home() {
               <ul className="space-y-2 text-white">
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   Mycie zewnętrzne
                 </li>
@@ -226,18 +208,18 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   Pielęgnacja szyb
-                </li>
+          </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   Pielęgnacja wnętrza
-                </li>
+          </li>
               </ul>
             </div>
             <div className="bg-black/50 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-zinc-800 hover:border-red-500 transition-all duration-300">
               <div className="h-48 mb-6 rounded-xl overflow-hidden relative">
-                <Image
+            <Image
                   src="/images/detaling/renowacja.jpg"
                   alt="Renowacja samochodu"
                   fill
@@ -381,11 +363,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12 border-t border-zinc-800">
+      <footer id="footer" className="bg-black text-white py-12 border-t border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 text-white">Carmazon</h3>
+              <h3 className="text-xl font-bold mb-4 text-white">Grupa Auto Spectrum</h3>
               <p className="text-zinc-400">
                 Profesjonalne usługi motoryzacyjne od 2010 roku. Zapewniamy kompleksową obsługę Twojego samochodu.
               </p>
@@ -404,13 +386,13 @@ export default function Home() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
-                  +48 123 456 789
+                  <span id="phone-number" className="transition-colors duration-300">+48 123 456 789</span>
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
-                  kontakt@carmazon.pl
+                  kontakt@GrupaAutoSpectrum.pl
                 </li>
               </ul>
             </div>
@@ -450,7 +432,7 @@ export default function Home() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.171-.879-1.172-2.303 0-3.182s3.07-.879 4.242 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Detaling
+                  Detailing
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
@@ -468,7 +450,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-zinc-800 text-center text-zinc-400">
-            <p>&copy; 2024 Carmazon. Wszelkie prawa zastrzeżone.</p>
+            <p>&copy; 2024 Grupa Auto Spectrum. Wszelkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
