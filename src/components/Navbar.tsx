@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/logo.svg"
+                src="/AutoSpectrum_logo copy.png"
                 alt="Grupa Auto Spectrum Logo"
                 width={40}
                 height={40}
