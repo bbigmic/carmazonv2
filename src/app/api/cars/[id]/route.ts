@@ -4,11 +4,10 @@ import prisma from '@/lib/prisma';
 // GET /api/cars/[id]
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
-
+    const { id } = await params;
     const car = await prisma.car.findUnique({
       where: { id }
     });
@@ -30,51 +29,34 @@ export async function GET(
   }
 }
 
-// DELETE /api/cars/[id]
-export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const { id } = params;
-
-    await prisma.car.delete({
-      where: { id }
-    });
-
-    return NextResponse.json({ message: 'Samochód został usunięty' });
-  } catch (error) {
-    console.error('Błąd podczas usuwania samochodu:', error);
-    return NextResponse.json(
-      { error: 'Wystąpił błąd podczas usuwania samochodu' },
-      { status: 500 }
-    );
-  }
-}
-
 // PUT /api/cars/[id]
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const data = await request.json();
 
-    // Sprawdź limit promowanych samochodów (tylko jeśli ustawiamy featured na true)
+    // Sprawdź limit promowanych samochodów jeśli samochód ma być promowany
     if (data.featured === true) {
-      const featuredCount = await prisma.car.count({
-        where: { 
-          featured: true,
-          id: { not: id } // Wyklucz aktualnie edytowany samochód
-        }
+      const currentCar = await prisma.car.findUnique({
+        where: { id },
+        select: { featured: true }
       });
-      
-      if (featuredCount >= 3) {
-        return NextResponse.json(
-          { error: 'Maksymalnie 3 samochody mogą być promowane na stronie głównej' },
-          { status: 400 }
-        );
+
+      // Jeśli samochód nie był wcześniej promowany, sprawdź limit
+      if (!currentCar?.featured) {
+        const featuredCount = await prisma.car.count({
+          where: { featured: true }
+        });
+        
+        if (featuredCount >= 3) {
+          return NextResponse.json(
+            { error: 'Maksymalnie 3 samochody mogą być promowane na stronie głównej' },
+            { status: 400 }
+          );
+        }
       }
     }
 
@@ -102,6 +84,28 @@ export async function PUT(
     console.error('Błąd podczas aktualizacji samochodu:', error);
     return NextResponse.json(
       { error: 'Wystąpił błąd podczas aktualizacji samochodu' },
+      { status: 500 }
+    );
+  }
+}
+
+// DELETE /api/cars/[id]
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+
+    await prisma.car.delete({
+      where: { id }
+    });
+
+    return NextResponse.json({ message: 'Samochód został usunięty' });
+  } catch (error) {
+    console.error('Błąd podczas usuwania samochodu:', error);
+    return NextResponse.json(
+      { error: 'Wystąpił błąd podczas usuwania samochodu' },
       { status: 500 }
     );
   }

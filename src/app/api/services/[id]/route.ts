@@ -4,10 +4,10 @@ import prisma from '@/lib/prisma';
 // PUT /api/services/[id]
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const data = await request.json();
 
     const service = await prisma.service.update({
@@ -34,10 +34,10 @@ export async function PUT(
 // DELETE /api/services/[id]
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     await prisma.service.delete({
       where: { id }
