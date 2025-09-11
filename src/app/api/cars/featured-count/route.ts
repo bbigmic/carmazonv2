@@ -13,9 +13,7 @@ export async function GET() {
     return NextResponse.json({ count });
   } catch (error) {
     console.error('Błąd podczas liczenia promowanych samochodów:', error);
-    return NextResponse.json(
-      { error: 'Wystąpił błąd podczas liczenia promowanych samochodów' },
-      { status: 500 }
-    );
+    // Return 0 count instead of error to prevent crashes
+    return NextResponse.json({ count: 0 });
   }
 }

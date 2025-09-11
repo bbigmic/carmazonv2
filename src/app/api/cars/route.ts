@@ -13,10 +13,8 @@ export async function GET() {
     return NextResponse.json(cars);
   } catch (error) {
     console.error('Błąd podczas pobierania samochodów:', error);
-    return NextResponse.json(
-      { error: 'Wystąpił błąd podczas pobierania samochodów' },
-      { status: 500 }
-    );
+    // Return empty array instead of error to prevent page crashes
+    return NextResponse.json([]);
   }
 }
 

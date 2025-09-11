@@ -32,14 +32,16 @@ export default function CarsSection() {
       try {
         const response = await fetch('/api/cars');
         if (!response.ok) {
-          throw new Error('Błąd podczas pobierania samochodów');
+          console.warn('API call failed, showing fallback content');
+          setCars([]); // Set empty array instead of throwing error
+          return;
         }
         const data = await response.json();
         // Pokaż tylko dostępne i promowane samochody
         setCars(data.filter((car: Car) => car.isAvailable && car.featured));
       } catch (error) {
         console.error('Error fetching cars:', error);
-        setError('Nie udało się pobrać listy samochodów');
+        setCars([]); // Set empty array instead of setting error
       } finally {
         setLoading(false);
       }
