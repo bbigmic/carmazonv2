@@ -197,7 +197,7 @@ export default function AdminPanel() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-white drop-shadow-lg">Panel Administracyjny</h1>
+        <h1 className="text-3xl font-bold mb-8 text-white drop-shadow-lg">Panel Administracyjny</h1> 
         
         <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
           <Tab.List className="flex space-x-1 rounded-xl bg-zinc-800/90 backdrop-blur-sm p-1 mb-8 border border-zinc-700 shadow-lg">
