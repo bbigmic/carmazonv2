@@ -1,7 +1,7 @@
 'use client';
 
 import { Dialog } from '@headlessui/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface ServiceFormProps {
   isOpen: boolean;
@@ -30,6 +30,23 @@ export default function ServiceForm({ isOpen, onClose, onSubmit, initialData, mo
       description: ''
     }
   );
+
+  // Reset form when switching between add/edit modes
+  React.useEffect(() => {
+    if (isOpen) {
+      if (mode === 'edit' && initialData) {
+        setFormData(initialData);
+      } else {
+        setFormData({
+          name: '',
+          category: 'mechanika',
+          price: 0,
+          duration: '',
+          description: ''
+        });
+      }
+    }
+  }, [isOpen, mode, initialData]);
 
   const [durationError, setDurationError] = useState('');
 
@@ -129,7 +146,7 @@ export default function ServiceForm({ isOpen, onClose, onSubmit, initialData, mo
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-zinc-700 border border-zinc-600 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.name}
                     onChange={handleChange}
                   />
@@ -143,7 +160,7 @@ export default function ServiceForm({ isOpen, onClose, onSubmit, initialData, mo
                     id="category"
                     name="category"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-zinc-700 border border-zinc-600 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.category}
                     onChange={handleChange}
                   >
@@ -163,7 +180,7 @@ export default function ServiceForm({ isOpen, onClose, onSubmit, initialData, mo
                     required
                     min="0"
                     step="0.01"
-                    className="w-full px-4 py-3 rounded-lg bg-zinc-700 border border-zinc-600 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.price}
                     onChange={handleChange}
                   />
@@ -181,7 +198,7 @@ export default function ServiceForm({ isOpen, onClose, onSubmit, initialData, mo
                     placeholder="np. 1h30m lub 30m"
                     className={`w-full px-4 py-3 rounded-lg bg-zinc-700 border ${
                       durationError ? 'border-red-500' : 'border-zinc-600'
-                    } text-black focus:outline-none focus:ring-2 focus:ring-red-500`}
+                    } text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500`}
                     value={formData.duration}
                     onChange={handleChange}
                   />
@@ -199,7 +216,7 @@ export default function ServiceForm({ isOpen, onClose, onSubmit, initialData, mo
                     name="description"
                     required
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-zinc-700 border border-zinc-600 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.description}
                     onChange={handleChange}
                   />

@@ -40,6 +40,14 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
             <Link 
+                href="/cars" 
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
+                }`}
+              >
+                Oferta
+              </Link>
+            <Link 
                 href="#sprzedaz" 
                 className={`text-sm font-medium transition-colors ${
                   isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
@@ -120,6 +128,14 @@ export default function Navbar() {
         isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
       } ${isScrolled ? 'bg-white' : 'bg-black'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <Link 
+            href="/cars" 
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
+            }`}
+          >
+            Oferta
+          </Link>
           <Link 
             href="#mechanika" 
             className={`block px-3 py-2 rounded-md text-base font-medium ${

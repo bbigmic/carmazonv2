@@ -3,6 +3,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
 import ContactButton from '@/components/ContactButton';
+import CarsSection from '@/components/CarsSection';
 
 export default function Home() {
   return (
@@ -55,7 +56,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-2">Profesjonalna Wycena</h4>
-                    <p className="text-zinc-400 text-white">Dokładna wycena Twojego samochodu przez naszych ekspertów</p>
+                    <p className="text-zinc-400">Dokładna wycena Twojego samochodu przez naszych ekspertów</p>
                   </div>
                 </div>
 
@@ -67,7 +68,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-2">Kompleksowa Obsługa</h4>
-                    <p className="text-zinc-400 text-white">Pomoc w formalnościach i dokumentacji</p>
+                    <p className="text-zinc-400">Pomoc w formalnościach i dokumentacji</p>
                   </div>
                 </div>
 
@@ -79,51 +80,16 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-2">Gwarancja Jakości</h4>
-                    <p className="text-zinc-400 text-white">Wszystkie oferowane samochody przechodzą szczegółową kontrolę techniczną</p>
+                    <p className="text-zinc-400">Wszystkie oferowane samochody przechodzą szczegółową kontrolę techniczną</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Prawa strona - Zakomentowany kod */}
+            {/* Prawa strona - Wyświetlanie samochodów */}
             <div className="bg-zinc-900/80 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800">
               <h3 className="text-2xl font-bold text-white mb-6">Nasza Oferta</h3>
-              <div className="space-y-6">
-                {/* Zakomentowany kod */}
-                {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {cars.map((car) => (
-                    <div key={car.id} className="bg-zinc-800 rounded-xl overflow-hidden group hover:transform hover:scale-105 transition-all duration-300">
-                      <div className="relative h-48 overflow-hidden">
-        <Image
-                          src={car.image}
-                          alt={car.name}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-white mb-2">{car.name}</h3>
-                        <p className="text-zinc-400 mb-4">{car.description}</p>
-                        <div className="flex justify-between items-center">
-                          <span className="text-2xl font-bold text-red-600">{car.price} zł</span>
-                          <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
-                            Szczegóły
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div> */}
-                
-                <div className="text-center">
-                  <p className="text-zinc-400 mb-6 text-white">
-                    Aktualnie pracujemy nad rozszerzeniem naszej oferty samochodów. 
-                    Wkrótce pojawią się tutaj dostępne pojazdy.
-                  </p>
-                  <ContactButton />
-                </div>
-              </div>
+              <CarsSection />
             </div>
           </div>
         </div>

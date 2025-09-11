@@ -105,7 +105,7 @@ export default function AppointmentForm() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                       value={formData.name}
                       onChange={handleChange}
                     />
@@ -120,7 +120,7 @@ export default function AppointmentForm() {
                       id="phone"
                       name="phone"
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                       value={formData.phone}
                       onChange={handleChange}
                     />
@@ -134,7 +134,7 @@ export default function AppointmentForm() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                       value={formData.email}
                       onChange={handleChange}
                     />
@@ -148,7 +148,7 @@ export default function AppointmentForm() {
                       id="service"
                       name="service"
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                       value={formData.service}
                       onChange={handleChange}
                     >
@@ -170,7 +170,7 @@ export default function AppointmentForm() {
                       id="date"
                       name="date"
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                       value={formData.date}
                       onChange={handleChange}
                     />
@@ -185,7 +185,7 @@ export default function AppointmentForm() {
                       id="time"
                       name="time"
                       required
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                       value={formData.time}
                       onChange={handleChange}
                     />
@@ -200,7 +200,7 @@ export default function AppointmentForm() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-zinc-800 border border-zinc-700 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                     value={formData.message}
                     onChange={handleChange}
                   />

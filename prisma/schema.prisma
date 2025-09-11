@@ -35,4 +35,23 @@ model Service {
   appointments Appointment[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
+}
+
+model Car {
+  id          String   @id @default(cuid())
+  brand       String
+  model       String
+  year        Int
+  price       Float
+  mileage     Int
+  fuelType    String
+  transmission String
+  engineSize  String
+  color       String
+  description String
+  images      String[] // Array of Cloudinary image URLs
+  isAvailable Boolean  @default(true)
+  featured    Boolean  @default(false) // Czy samochód jest promowany na stronie głównej
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 } 
