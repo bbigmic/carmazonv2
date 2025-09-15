@@ -200,12 +200,13 @@ export default function AdminPanel() {
         <h1 className="text-3xl font-bold mb-8 text-white drop-shadow-lg">Panel Administracyjny</h1> 
         
         <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
-          <Tab.List className="flex space-x-1 rounded-xl bg-zinc-800/90 backdrop-blur-sm p-1 mb-8 border border-zinc-700 shadow-lg">
+          <Tab.List className="grid grid-cols-2 sm:flex sm:space-x-1 rounded-xl bg-zinc-800/90 backdrop-blur-sm p-1 mb-8 border border-zinc-700 shadow-lg gap-1 sm:gap-0">
             <Tab
               className={({ selected }) =>
                 classNames(
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
+                  'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
+                  'flex-1 min-w-0',
                   selected
                     ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
                     : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
@@ -213,15 +214,16 @@ export default function AdminPanel() {
               }
             >
               <div className="flex items-center justify-center">
-                <CalendarIcon className="w-5 h-5 mr-2" />
-                Wizyty
+                <CalendarIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">Wizyty</span>
               </div>
             </Tab>
             <Tab
               className={({ selected }) =>
                 classNames(
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
+                  'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
+                  'flex-1 min-w-0',
                   selected
                     ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
                     : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
@@ -229,15 +231,16 @@ export default function AdminPanel() {
               }
             >
               <div className="flex items-center justify-center">
-                <WrenchScrewdriverIcon className="w-5 h-5 mr-2" />
-                Usługi
+                <WrenchScrewdriverIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">Usługi</span>
               </div>
             </Tab>
             <Tab
               className={({ selected }) =>
                 classNames(
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
+                  'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
+                  'flex-1 min-w-0',
                   selected
                     ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
                     : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
@@ -245,15 +248,16 @@ export default function AdminPanel() {
               }
             >
               <div className="flex items-center justify-center">
-                <TruckIcon className="w-5 h-5 mr-2" />
-                Samochody
+                <TruckIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">Samochody</span>
               </div>
             </Tab>
             <Tab
               className={({ selected }) =>
                 classNames(
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
+                  'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
+                  'flex-1 min-w-0',
                   selected
                     ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
                     : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
@@ -261,8 +265,8 @@ export default function AdminPanel() {
               }
             >
               <div className="flex items-center justify-center">
-                <ChartBarIcon className="w-5 h-5 mr-2" />
-                Statystyki
+                <ChartBarIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">Statystyki</span>
               </div>
             </Tab>
           </Tab.List>

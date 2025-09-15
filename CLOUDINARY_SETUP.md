@@ -44,3 +44,4 @@ CLOUDINARY_API_SECRET=twoj_sekretny_klucz
 - Maksymalna wysokość: 600px
 - Jakość: auto (optymalna)
 - Folder: `carmazon/cars/`
+
