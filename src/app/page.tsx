@@ -12,9 +12,9 @@ export default function Home() {
       
       {/* Hero Section */}
       <section 
-        className="relative min-h-[90vh] flex items-center justify-center animate-fade-in"
+        className="relative min-h-[150vh] sm:min-h-[90vh] flex items-center justify-center animate-fade-in"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('/hero-bg.jpg')",
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url('/hero-bg.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -362,7 +362,7 @@ export default function Home() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 text-red-500">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
-                  kontakt@GrupaAutoSpectrum.pl
+                  kontakt@GrupaAutoSpectrum.com
                 </li>
               </ul>
             </div>

@@ -45,3 +45,4 @@ CLOUDINARY_API_SECRET=twoj_sekretny_klucz
 - Jakość: auto (optymalna)
 - Folder: `carmazon/cars/`
 
+
