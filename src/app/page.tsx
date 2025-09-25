@@ -12,7 +12,7 @@ export default function Home() {
       
       {/* Hero Section */}
       <section 
-        className="relative min-h-[150vh] sm:min-h-[90vh] flex items-center justify-center animate-fade-in"
+        className="relative min-h-[100vh] sm:min-h-[90vh] flex items-center justify-center animate-fade-in"
         style={{
           backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url('/hero-bg.jpg')",
           backgroundSize: 'cover',
