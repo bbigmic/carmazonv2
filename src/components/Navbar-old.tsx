@@ -27,14 +27,14 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <Image
                 src="/AutoSpectrum_logo copy.png"
-                alt="Auto Rozwój Logo"
+                alt="Grupa Auto Spectrum Logo"
                 width={40}
                 height={40}
                 className="h-10 w-auto"
               />
               <span className={`ml-2 text-xl font-bold ${
                 isScrolled ? 'text-black' : 'text-white'
-              }`}>Auto Rozwój</span>
+              }`}>Grupa Auto Spectrum</span>
             </Link>
           </div>
           <div className="hidden md:block">
