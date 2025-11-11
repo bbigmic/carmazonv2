@@ -109,7 +109,7 @@ export default function CarDetailsPage() {
               Powrót
             </button>
             <Link href="/" className="text-white hover:text-red-400 transition-colors">
-              Grupa Auto Spectrum
+              Auto Rozwój
             </Link>
           </div>
         </div>
@@ -288,8 +288,8 @@ export default function CarDetailsPage() {
               <div className="space-y-3">
                 <div className="flex items-center">
                   <PhoneIcon className="w-5 h-5 text-red-500 mr-3" />
-                  <a href="tel:+48662061106" className="text-white hover:text-red-400 transition-colors">
-                    +48 662 061 106
+                  <a href="tel:+48787505202" className="text-white hover:text-red-400 transition-colors">
+                    +48 787 505 202
                   </a>
                 </div>
                 <div className="flex items-center">
@@ -300,7 +300,7 @@ export default function CarDetailsPage() {
                 </div>
                 <div className="flex items-center">
                   <MapPinIcon className="w-5 h-5 text-red-500 mr-3" />
-                  <span className="text-white">ul. Dobrzyńska 91, 42-200 Częstochowa</span>
+                  <span className="text-white">ul. Dobrzyńska 91, 42-202 Częstochowa</span>
                 </div>
               </div>
             </div>
@@ -310,5 +310,8 @@ export default function CarDetailsPage() {
     </div>
   );
 }
+
+
+
 
 

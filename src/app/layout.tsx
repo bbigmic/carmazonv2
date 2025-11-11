@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Grupa Auto Spectrum - Kompleksowe Usługi Motoryzacyjne",
+  title: "Auto Rozwój - Kompleksowe Usługi Motoryzacyjne",
   description: "Mechanika, Detaling, Sprzedaż Samochodów i Wynajem Lawet - wszystko w jednym miejscu",
 };
 
