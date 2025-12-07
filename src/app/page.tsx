@@ -95,6 +95,79 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Mechanika Section */}
+      <section id="mechanika" className="py-20 bg-black scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white animate-fade-in">
+            Mechanika
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800 animate-fade-in animate-delay-100">
+              <div className="absolute inset-0 bg-black/80 z-10" />
+              <img 
+                src="/images/mechanika/diagnostyka.jpg" 
+                alt="Diagnostyka samochodowa" 
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
+              <div className="relative z-20 bg-transparent p-8">
+                <div className="mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Diagnostyka</h3>
+                <p className="text-white">Profesjonalna diagnostyka komputerowa i manualna</p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800 animate-fade-in animate-delay-200">
+              <div className="absolute inset-0 bg-black/80 z-10" />
+              <img 
+                src="/images/mechanika/naprawy.jpg" 
+                alt="Naprawy samochodowe" 
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
+              <div className="relative z-20 bg-transparent p-8">
+                <div className="mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Naprawy</h3>
+                <p className="text-white">Kompleksowe naprawy mechaniczne i elektryczne</p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800 animate-fade-in animate-delay-300">
+              <div className="absolute inset-0 bg-black/80 z-10" />
+              <img 
+                src="/images/mechanika/serwis.jpg" 
+                alt="Serwis samochodowy" 
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
+              <div className="relative z-20 bg-transparent p-8">
+                <div className="mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Serwis</h3>
+                <p className="text-white">Regularne przeglądy i wymiany płynów</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* detailing Section */}
       <section id="detailing" className="py-20 relative overflow-hidden scroll-mt-20">
         <div 
@@ -222,76 +295,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mechanika Section */}
-      <section id="mechanika" className="py-20 bg-black scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white animate-fade-in">
-            Mechanika
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800 animate-fade-in animate-delay-100">
-              <div className="absolute inset-0 bg-black/80 z-10" />
-              <img 
-                src="/images/mechanika/diagnostyka.jpg" 
-                alt="Diagnostyka samochodowa" 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
-              <div className="relative z-20 bg-transparent p-8">
-                <div className="mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-white">Diagnostyka</h3>
-                <p className="text-white">Profesjonalna diagnostyka komputerowa i manualna</p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800 animate-fade-in animate-delay-200">
-              <div className="absolute inset-0 bg-black/80 z-10" />
-              <img 
-                src="/images/mechanika/naprawy.jpg" 
-                alt="Naprawy samochodowe" 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
-              <div className="relative z-20 bg-transparent p-8">
-                <div className="mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-white">Naprawy</h3>
-                <p className="text-white">Kompleksowe naprawy mechaniczne i elektryczne</p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all border border-zinc-800 animate-fade-in animate-delay-300">
-              <div className="absolute inset-0 bg-black/80 z-10" />
-              <img 
-                src="/images/mechanika/serwis.jpg" 
-                alt="Serwis samochodowy" 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent z-15" />
-              <div className="relative z-20 bg-transparent p-8">
-                <div className="mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-red-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-white">Serwis</h3>
-                <p className="text-white">Regularne przeglądy i wymiany płynów</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       
       {/* Laweta Section */}
