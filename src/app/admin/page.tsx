@@ -165,11 +165,16 @@ export default function AdminPanel() {
         }),
       });
 
+      const responseData = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error(isEdit ? 'Błąd podczas aktualizacji samochodu' : 'Błąd podczas dodawania samochodu');
+        const message = typeof responseData?.error === 'string' 
+          ? responseData.error 
+          : (isEdit ? 'Błąd podczas aktualizacji samochodu' : 'Błąd podczas dodawania samochodu');
+        throw new Error(message);
       }
 
-      const updatedCar = await response.json();
+      const updatedCar = responseData;
       
       if (isEdit) {
         setCars(prev => prev.map(car => car.id === editingCar.id ? updatedCar : car));
@@ -182,7 +187,8 @@ export default function AdminPanel() {
       setEditingCar(null);
     } catch (error) {
       console.error('Error submitting car:', error);
-      toast.error(editingCar ? 'Nie udało się zaktualizować samochodu. Możesz promować maksymalnie 3 samochody na raz.' : 'Nie udało się dodać samochodu');
+      const message = error instanceof Error ? error.message : (editingCar ? 'Nie udało się zaktualizować samochodu' : 'Nie udało się dodać samochodu');
+      toast.error(message);
     }
   };
 
@@ -214,19 +220,40 @@ export default function AdminPanel() {
               }
             >
               <div className="flex items-center justify-center">
+                <TruckIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="truncate">Samochody</span>
+              </div>
+            </Tab>
+            <Tab
+              disabled
+              className={({ selected, disabled }) =>
+                classNames(
+                  'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
+                  'flex-1 min-w-0',
+                  disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
+                  !disabled && selected
+                    ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
+                    : !disabled && 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
+                )
+              }
+            >
+              <div className="flex items-center justify-center">
                 <CalendarIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
                 <span className="truncate">Wizyty</span>
               </div>
             </Tab>
             <Tab
-              className={({ selected }) =>
+              disabled
+              className={({ selected, disabled }) =>
                 classNames(
                   'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
                   'flex-1 min-w-0',
-                  selected
+                  disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
+                  !disabled && selected
                     ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
-                    : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
+                    : !disabled && 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
                 )
               }
             >
@@ -236,31 +263,16 @@ export default function AdminPanel() {
               </div>
             </Tab>
             <Tab
-              className={({ selected }) =>
+              disabled
+              className={({ selected, disabled }) =>
                 classNames(
                   'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
                   'flex-1 min-w-0',
-                  selected
+                  disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
+                  !disabled && selected
                     ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
-                    : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
-                )
-              }
-            >
-              <div className="flex items-center justify-center">
-                <TruckIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
-                <span className="truncate">Samochody</span>
-              </div>
-            </Tab>
-            <Tab
-              className={({ selected }) =>
-                classNames(
-                  'rounded-lg py-2.5 text-sm font-medium leading-5 transition-all duration-200',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-zinc-800 focus:outline-none focus:ring-2',
-                  'flex-1 min-w-0',
-                  selected
-                    ? 'bg-red-600 text-white shadow-lg shadow-red-500/20'
-                    : 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
+                    : !disabled && 'text-zinc-300 hover:bg-zinc-700/80 hover:text-white'
                 )
               }
             >
@@ -271,94 +283,6 @@ export default function AdminPanel() {
             </Tab>
           </Tab.List>
           <Tab.Panels className="mt-2">
-            <Tab.Panel className="rounded-xl bg-zinc-800/90 backdrop-blur-sm p-6 border border-zinc-700 shadow-lg">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white drop-shadow-lg">Zarządzanie wizytami</h2>
-                <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 shadow-lg shadow-red-500/20">
-                  Dodaj wizytę
-                </button>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-zinc-700">
-                  <thead>
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Data</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Klient</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Usługa</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Status</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Akcje</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-zinc-700">
-                    {/* Tutaj będą wiersze z wizytami */}
-                  </tbody>
-                </table>
-              </div>
-            </Tab.Panel>
-
-            <Tab.Panel className="rounded-xl bg-zinc-800/90 backdrop-blur-sm p-6 border border-zinc-700 shadow-lg">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white drop-shadow-lg">Zarządzanie usługami</h2>
-                <button 
-                  onClick={() => {
-                    setEditingService(null);
-                    setIsServiceFormOpen(true);
-                  }}
-                  className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20"
-                >
-                  Dodaj usługę
-                </button>
-              </div>
-              
-              <div className="grid grid-cols-1 gap-4">
-                {services.map((service) => (
-                  <div 
-                    key={service.id}
-                    className="bg-zinc-700/90 backdrop-blur-sm p-6 rounded-lg border border-zinc-600 shadow-lg hover:shadow-xl transition-all"
-                  >
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 className="text-lg font-semibold text-white mb-1">{service.name}</h3>
-                        <p className="text-zinc-300 text-sm mb-2">{service.description}</p>
-                        <div className="flex items-center gap-4">
-                          <span className="text-red-500 font-semibold">{service.price} zł</span>
-                          <span className="text-zinc-400">{service.duration}</span>
-                          <span className="px-2 py-1 rounded-full bg-zinc-800 text-xs text-zinc-300">
-                            {service.category}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => handleEditService(service)}
-                          className="p-2 text-zinc-400 hover:text-white transition-colors"
-                        >
-                          <PencilIcon className="w-5 h-5" />
-                        </button>
-                        <button
-                          onClick={() => handleDeleteService(service.id)}
-                          className="p-2 text-zinc-400 hover:text-red-500 transition-colors"
-                        >
-                          <TrashIcon className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <ServiceForm
-                isOpen={isServiceFormOpen}
-                onClose={() => {
-                  setIsServiceFormOpen(false);
-                  setEditingService(null);
-                }}
-                onSubmit={handleServiceSubmit}
-                initialData={editingService || undefined}
-                mode={editingService ? 'edit' : 'add'}
-              />
-            </Tab.Panel>
-
             <Tab.Panel className="rounded-xl bg-zinc-800/90 backdrop-blur-sm p-6 border border-zinc-700 shadow-lg">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-white drop-shadow-lg">Zarządzanie samochodami</h2>
@@ -424,18 +348,22 @@ export default function AdminPanel() {
                         <p className="text-zinc-400 text-sm mb-4 line-clamp-2">
                           {car.description}
                         </p>
-                        <div className="flex gap-2">
+                        <div className="flex gap-3 pt-2 border-t border-zinc-600">
                           <button
                             onClick={() => handleEditCar(car)}
-                            className="flex-1 p-2 text-zinc-400 hover:text-white transition-colors bg-zinc-800 rounded-lg hover:bg-zinc-700"
+                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm bg-amber-500/20 text-amber-400 border border-amber-500/50 hover:bg-amber-500/40 hover:text-amber-300 hover:border-amber-400/70 transition-all duration-200 shadow-sm"
+                            title="Edytuj samochód"
                           >
-                            <PencilIcon className="w-5 h-5 mx-auto" />
+                            <PencilIcon className="w-5 h-5 flex-shrink-0" />
+                            <span>Edytuj</span>
                           </button>
                           <button
                             onClick={() => handleDeleteCar(car.id)}
-                            className="flex-1 p-2 text-zinc-400 hover:text-red-500 transition-colors bg-zinc-800 rounded-lg hover:bg-zinc-700"
+                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/40 hover:text-red-300 hover:border-red-400/70 transition-all duration-200 shadow-sm"
+                            title="Usuń samochód"
                           >
-                            <TrashIcon className="w-5 h-5 mx-auto" />
+                            <TrashIcon className="w-5 h-5 flex-shrink-0" />
+                            <span>Usuń</span>
                           </button>
                         </div>
                       </div>
@@ -461,6 +389,98 @@ export default function AdminPanel() {
                 onSubmit={handleCarSubmit}
                 initialData={editingCar || undefined}
                 mode={editingCar ? 'edit' : 'add'}
+              />
+            </Tab.Panel>
+
+            <Tab.Panel className="rounded-xl bg-zinc-800/90 backdrop-blur-sm p-6 border border-zinc-700 shadow-lg">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white drop-shadow-lg">Zarządzanie wizytami</h2>
+                <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 shadow-lg shadow-red-500/20">
+                  Dodaj wizytę
+                </button>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-zinc-700">
+                  <thead>
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Data</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Klient</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Usługa</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Status</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">Akcje</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-700">
+                    {/* Tutaj będą wiersze z wizytami */}
+                  </tbody>
+                </table>
+              </div>
+            </Tab.Panel>
+
+            <Tab.Panel className="rounded-xl bg-zinc-800/90 backdrop-blur-sm p-6 border border-zinc-700 shadow-lg">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white drop-shadow-lg">Zarządzanie usługami</h2>
+                <button 
+                  onClick={() => {
+                    setEditingService(null);
+                    setIsServiceFormOpen(true);
+                  }}
+                  className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20"
+                >
+                  Dodaj usługę
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-4">
+                {services.map((service) => (
+                  <div 
+                    key={service.id}
+                    className="bg-zinc-700/90 backdrop-blur-sm p-6 rounded-lg border border-zinc-600 shadow-lg hover:shadow-xl transition-all"
+                  >
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-lg font-semibold text-white mb-1">{service.name}</h3>
+                        <p className="text-zinc-300 text-sm mb-2">{service.description}</p>
+                        <div className="flex items-center gap-4">
+                          <span className="text-red-500 font-semibold">{service.price} zł</span>
+                          <span className="text-zinc-400">{service.duration}</span>
+                          <span className="px-2 py-1 rounded-full bg-zinc-800 text-xs text-zinc-300">
+                            {service.category}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex gap-3 flex-shrink-0">
+                        <button
+                          onClick={() => handleEditService(service)}
+                          className="flex items-center gap-2 py-2.5 px-4 rounded-lg font-medium text-sm bg-amber-500/20 text-amber-400 border border-amber-500/50 hover:bg-amber-500/40 hover:text-amber-300 hover:border-amber-400/70 transition-all duration-200 shadow-sm"
+                          title="Edytuj usługę"
+                        >
+                          <PencilIcon className="w-5 h-5" />
+                          <span>Edytuj</span>
+                        </button>
+                        <button
+                          onClick={() => handleDeleteService(service.id)}
+                          className="flex items-center gap-2 py-2.5 px-4 rounded-lg font-medium text-sm bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/40 hover:text-red-300 hover:border-red-400/70 transition-all duration-200 shadow-sm"
+                          title="Usuń usługę"
+                        >
+                          <TrashIcon className="w-5 h-5" />
+                          <span>Usuń</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <ServiceForm
+                isOpen={isServiceFormOpen}
+                onClose={() => {
+                  setIsServiceFormOpen(false);
+                  setEditingService(null);
+                }}
+                onSubmit={handleServiceSubmit}
+                initialData={editingService || undefined}
+                mode={editingService ? 'edit' : 'add'}
               />
             </Tab.Panel>
 
