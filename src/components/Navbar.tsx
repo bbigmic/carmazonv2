@@ -26,15 +26,15 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/AutoSpectrum_logo copy.png"
-                alt="Auto Rozwój Logo"
+                src="/bp-logistic.png"
+                alt="BP Logistic Logo"
                 width={40}
                 height={40}
                 className="h-10 w-auto"
               />
               <span className={`ml-2 text-xl font-bold ${
                 isScrolled ? 'text-black' : 'text-white'
-              }`}>Auto Rozwój</span>
+              }`}>BP Logistic</span>
             </Link>
           </div>
           <div className="hidden md:block">
@@ -53,7 +53,7 @@ export default function Navbar() {
                   isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
                 }`}
               >
-                Sprzedaż
+                Dostawczaki
               </Link>
               <Link 
                 href="#detailing" 
@@ -158,7 +158,7 @@ export default function Navbar() {
               isScrolled ? 'text-black hover:text-red-600' : 'text-white hover:text-red-400'
             }`}
           >
-            Sprzedaż
+            Dostawczaki
           </Link>
           <Link 
             href="#laweta" 

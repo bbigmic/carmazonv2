@@ -109,7 +109,7 @@ export default function CarDetailsPage() {
               Powrót
             </button>
             <Link href="/" className="text-white hover:text-red-400 transition-colors">
-              Auto Rozwój
+              BP Logistic
             </Link>
           </div>
         </div>
@@ -288,19 +288,19 @@ export default function CarDetailsPage() {
               <div className="space-y-3">
                 <div className="flex items-center">
                   <PhoneIcon className="w-5 h-5 text-red-500 mr-3" />
-                  <a href="tel:+48787505202" className="text-white hover:text-red-400 transition-colors">
-                    +48 787 505 202
+                  <a href="tel:+48123456789" className="text-white hover:text-red-400 transition-colors">
+                    +48 123 456 789
                   </a>
                 </div>
                 <div className="flex items-center">
                   <EnvelopeIcon className="w-5 h-5 text-red-500 mr-3" />
-                  <a href="mailto:kontakt@GrupaAutoSpectrum.pl" className="text-white hover:text-red-400 transition-colors">
-                    kontakt@GrupaAutoSpectrum.pl
+                  <a href="mailto:biuro@bplogistic.pl" className="text-white hover:text-red-400 transition-colors">
+                    biuro@bplogistic.pl
                   </a>
                 </div>
                 <div className="flex items-center">
                   <MapPinIcon className="w-5 h-5 text-red-500 mr-3" />
-                  <span className="text-white">ul. Dobrzyńska 91, 42-202 Częstochowa</span>
+                  <span className="text-white">ul. Logistyczna 1, 42-200 Częstochowa</span>
                 </div>
               </div>
             </div>

@@ -54,7 +54,7 @@ export default function CarsSection() {
     return (
       <div className="text-center py-8">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto"></div>
-        <p className="text-zinc-400 mt-4">Ładowanie samochodów...</p>
+        <p className="text-zinc-400 mt-4">Ładowanie oferty...</p>
       </div>
     );
   }
@@ -72,8 +72,8 @@ export default function CarsSection() {
     return (
       <div className="text-center">
         <p className="text-zinc-400 mb-6 text-white">
-          Aktualnie nie mamy promowanych samochodów. 
-          Sprawdź naszą pełną ofertę poniżej.
+          Aktualnie nie mamy promowanych dostawczaków w tej sekcji. 
+          Sprawdź pełną ofertę samochodów dostawczych.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
@@ -150,8 +150,8 @@ export default function CarsSection() {
       <div className="text-center">
         <p className="text-zinc-400 mb-4">
           {cars.length > 0 
-            ? `Zobacz wszystkie samochody w naszej ofercie`
-            : `Sprawdź naszą pełną ofertę samochodów`
+            ? `Zobacz wszystkie samochody dostawcze w ofercie`
+            : `Sprawdź pełną ofertę dostawczaków`
           }
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
